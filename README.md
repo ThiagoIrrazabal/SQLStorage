@@ -53,8 +53,13 @@ Adicione, remova ou acesse os SQLs programaticamente.
 
 #### Adicionando SQLs no Runtime
 ```delphi
-SQLStorage.SQLItems.Add.Identifier := 'GetAllUsers';
-SQLStorage.SQLItems.Add.SQL.Text := 'SELECT * FROM Users ORDER BY Name';
+var
+   lSQLItem: TSQLItem;
+begin
+   lSQLItem := TSQLItem(SQLStorage.SQLItems.Add);
+   lSQLItem.Identifier := 'GetAllUsers';
+   lSQLItem.SQL.Text := 'SELECT * FROM Users ORDER BY Name';
+end;
 ```
 #### Recuperando SQL por Identificador
 ```delphi
